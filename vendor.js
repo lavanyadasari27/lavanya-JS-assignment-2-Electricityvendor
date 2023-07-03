@@ -19,19 +19,48 @@ class electricityVendor {
   }
 
   applyDiscount(discountFlag) {
+    let modifiedReadings=this.readings
     if (discountFlag) {
-      const modifiedReadings = this.readings.map((number) => {
+      modifiedReadings =this.readings.map((number) => {
         if (number % 2 === 0) {
           return (number = number - number * 0.1);
         } else {
           return (number = number - number * 0.12);
         }
       });
-     return modifiedReadings;
+      this.getdiscountedPrice(modifiedReadings);
+    //  return(modifiedReadings);
+
     }
+    console.log(modifiedReadings);
+  }
+  getdiscountedPrice(modifiedReadings){
+    // let modifiedReadings= this.applyDiscount(true);
+    console.log(modifiedReadings);
+    // const newarr = modifiedReadings.map((number)=>{
+    //   return (number*this.chargeRate)
+    // });
+    // return(newarr);
   }
 }
 
-module.exports = electricityVendor;
+const lukeReadings = [1, 2];
+const lucasReadings = [2, 4];
+const lucyReadings = [1, 3];
+const entro = new electricityVendor("Entro", 3, lukeReadings);
+const thunder = new electricityVendor("Thunder", 3.5, lucasReadings);
+const bolt = new electricityVendor("Bolt", 4, lucyReadings);
+console.log(entro.getTotalCost());
+// console.log(thunder.getTotalCost());
+// console.log(bolt.getTotalCost());
+// console.log(entro.getTotalReadings());
+// console.log(thunder.getTotalReadings());
+// console.log(bolt.getTotalReadings());
+// console.log(entro.applyDiscount(true));
+// console.log(thunder.applyDiscount(true));
+// console.log(bolt.applyDiscount(true));
+console.log(entro.getdiscountedPrice(1));
+
+// module.exports = electricityVendor;
 
 

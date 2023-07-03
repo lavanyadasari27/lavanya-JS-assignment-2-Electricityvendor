@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "vendor.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-cov":"jest --coverage"
   },
   "keywords": [],
   "author": "",
